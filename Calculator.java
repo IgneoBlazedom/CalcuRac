@@ -110,7 +110,7 @@ public class Calculator extends JFrame implements ActionListener{
 		// Add components to frame
 		getContentPane().add(jlbOutput, BorderLayout.NORTH);
 
-		jbnButtons = new JButton[31];
+		jbnButtons = new JButton[38];
 //		GridLayout(int rows, int cols, int hgap, int vgap) 
 
 		JPanel jplButtons = new JPanel();			// container for Jbuttons
@@ -140,14 +140,14 @@ public class Calculator extends JFrame implements ActionListener{
                                     jbnButtons[27] = new JButton("mod");
                                     jbnButtons[28] = new JButton("ln(x)");
                                     jbnButtons[29] = new JButton("log(x)");
-                                    jbnButtons[30] = new JButton("e^x");/*
+                                    jbnButtons[30] = new JButton("e^x");
                                     jbnButtons[31] = new JButton("arcsen(x)");
                                     jbnButtons[32] = new JButton("arccos(x)");
                                     jbnButtons[33] = new JButton("arctan(x)");
                                     jbnButtons[34] = new JButton("senh(x)");
                                     jbnButtons[35] = new JButton("cosh(x)");
                                     jbnButtons[36] = new JButton("tanh(x)");
-                                    jbnButtons[37] = new JButton("A radianes");*/
+                                    jbnButtons[37] = new JButton("A radianes");
                                     
 		
 		jplBackSpace = new JPanel();
@@ -177,7 +177,7 @@ public class Calculator extends JFrame implements ActionListener{
 		}
 	
 		// Set panel layout manager for a 4 by 5 grid
-		jplButtons.setLayout(new GridLayout(4, 7, 2, 2));
+		jplButtons.setLayout(new GridLayout(5, 7, 2, 2));
 		
 		//Add buttons to keypad panel starting at top left
 		// First row
@@ -224,6 +224,14 @@ public class Calculator extends JFrame implements ActionListener{
 		jplButtons.add(jbnButtons[12]);
 		jplButtons.add(jbnButtons[26]);
 		jplButtons.add(jbnButtons[30]);
+                                    //Quinta
+                                    jplButtons.add(jbnButtons[31]);
+		jplButtons.add(jbnButtons[32]);
+		jplButtons.add(jbnButtons[33]);
+		jplButtons.add(jbnButtons[34]);
+		jplButtons.add(jbnButtons[35]);
+		jplButtons.add(jbnButtons[36]);
+		jplButtons.add(jbnButtons[37]);
 		
 		jplMaster.setLayout(new BorderLayout());
 		jplMaster.add(jplBackSpace, BorderLayout.WEST);
@@ -506,6 +514,118 @@ public class Calculator extends JFrame implements ActionListener{
 							{
 	
 								result = Math.exp(getNumberInDisplay());
+								displayResult(result);
+							}
+							
+							catch(Exception ex)	{
+								displayError("Cannot divide by zero!");
+								displayMode = ERROR_MODE;
+							}
+						}
+						break;
+
+					case 31:	// arcosen
+						if (displayMode != ERROR_MODE){
+							try
+							{
+	
+								result = Math.asin(getNumberInDisplay());
+								displayResult(result);
+							}
+							
+							catch(Exception ex)	{
+								displayError("Cannot divide by zero!");
+								displayMode = ERROR_MODE;
+							}
+						}
+						break;
+
+					case 32:	// e^x
+						if (displayMode != ERROR_MODE){
+							try
+							{
+	
+								result = Math.acos(getNumberInDisplay());
+								displayResult(result);
+							}
+							
+							catch(Exception ex)	{
+								displayError("Cannot divide by zero!");
+								displayMode = ERROR_MODE;
+							}
+						}
+						break;
+
+					case 33:	// e^x
+						if (displayMode != ERROR_MODE){
+							try
+							{
+	
+								result = Math.atan(getNumberInDisplay());
+								displayResult(result);
+							}
+							
+							catch(Exception ex)	{
+								displayError("Cannot divide by zero!");
+								displayMode = ERROR_MODE;
+							}
+						}
+						break;
+
+					case 34:	// e^x
+						if (displayMode != ERROR_MODE){
+							try
+							{
+	
+								result = Math.sinh(getNumberInDisplay());
+								displayResult(result);
+							}
+							
+							catch(Exception ex)	{
+								displayError("Cannot divide by zero!");
+								displayMode = ERROR_MODE;
+							}
+						}
+						break;
+
+					case 35:	// e^x
+						if (displayMode != ERROR_MODE){
+							try
+							{
+	
+								result = Math.cosh(getNumberInDisplay());
+								displayResult(result);
+							}
+							
+							catch(Exception ex)	{
+								displayError("Cannot divide by zero!");
+								displayMode = ERROR_MODE;
+							}
+						}
+						break;
+
+					case 36:	// e^x
+						if (displayMode != ERROR_MODE){
+							try
+							{
+	
+								result = Math.tanh(getNumberInDisplay());
+								displayResult(result);
+							}
+							
+							catch(Exception ex)	{
+								displayError("Cannot divide by zero!");
+								displayMode = ERROR_MODE;
+							}
+						}
+						break;
+
+					case 37:	// e^x
+						if (displayMode != ERROR_MODE){
+							try
+							{
+	
+								result = Math.toRadians(getNumberInDisplay());
 								displayResult(result);
 							}
 							
