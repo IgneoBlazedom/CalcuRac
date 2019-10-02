@@ -29,7 +29,7 @@
                         <Button fx:id="btn6" layoutX="69.0" layoutY="10.0" mnemonicParsing="false" onAction="#ClickBoton" prefHeight="25.0" prefWidth="59.0" text="6" />
                         <Separator orientation="VERTICAL" />
                         <Button fx:id="btnMult" layoutX="128.0" layoutY="10.0" mnemonicParsing="false" onAction="#ClickBoton" prefHeight="25.0" prefWidth="59.0" text="*" />
-                        <Button fx:id="btnPow" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#ClickBoton" prefHeight="25.0" prefWidth="59.0" text="^" />
+                        <Button fx:id="btnPow" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#ClickBoton" prefHeight="25.0" prefWidth="59.0" text="1/x" />
                      </children>
                   </HBox>
                   <HBox layoutX="10.0" layoutY="35.0">

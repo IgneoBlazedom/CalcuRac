@@ -20,7 +20,7 @@ import javafx.scene.control.TextField;
  */
 public class FXMLDocumentController implements Initializable {
     @FXML
-    private Button btn0,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btnDen,btnDiv,btnMult,btnRes,btnSum,btnCLR,btnPOW,btnSqrt,btnEq;
+    private Button btn0,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btnDen,btnDiv,btnMult,btnRes,btnSum,btnCLR,btnPow,btnSqrt,btnEq;
     
     @FXML
     private TextField displayLabel;
@@ -107,9 +107,9 @@ public class FXMLDocumentController implements Initializable {
                 System.out.println("Sum presionado");
                 processOperator("+");
 		break;
-            case "btnPOW":
-                System.out.println("POW presionado");
-                processOperator("^");
+            case "btnPow":
+                System.out.println("iNVERTIR presionado");
+                processOperator("1/x");
 		break;
             case "btnSqrt":
                 System.out.println("Sqrt presionado");
@@ -191,11 +191,9 @@ public class FXMLDocumentController implements Initializable {
             result = lastNumber.sumar(numberInDisplay);
         if (lastOperator.equals("sqrt"))
             result = lastNumber.cuadrado();
-//                if(lastOperator.equals("^"))
-//                                  result = Math.pow(lastNumber, numberInDisplay);
-//                if(lastOperator.equals("mod"))
-//                                  result = lastNumber % numberInDisplay;
-
+        if (lastOperator.equals("1/x"))
+            result = lastNumber.potencia();        
+            
         return result;
     }
     

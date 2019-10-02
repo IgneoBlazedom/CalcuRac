@@ -11,7 +11,6 @@ package calculadoraracionales;
  */
 public class Racional {
     private int den, num;
-    private double dop;
     
      public Racional(int n,int d){
          den = d;
@@ -19,19 +18,23 @@ public class Racional {
      }
     
     public Racional sumar(Racional r){
-        int mD= gcd(r.den, den);
-        
-        return new Racional((den/mD)*num + (r.den/mD)*r.num, r.den*den*mD);
+        int mD= mcd(r.den, den);
+        Racional rp = new Racional((mD/r.den)*num + (mD/den)*r.num, mD);
+        rp.reducir();
+        return rp;
     }
     
     public Racional restar(Racional r){
-        int mD= gcd(r.den, den);
-        
-        return new Racional((den/mD)*num - (r.den/mD)*r.num, r.den*den*mD);
+        int mD= mcd(r.den, den);
+        Racional rp = new Racional((mD/r.den)*num - (mD/den)*r.num, mD);
+        rp.reducir();
+        return rp;
     }
     
     public Racional multiplicar(Racional r){
-        return new Racional(num*r.num, mcd(den, r.den));
+        Racional rp = new Racional(num*r.num, den*r.den);
+        rp.reducir();
+        return rp;
     }
     
     public Racional multiplicar(int n){
@@ -39,18 +42,28 @@ public class Racional {
     }
     
     public Racional cuadrado(){
-        return new Racional(this.num*this.num, this.den*this.den);
+        return multiplicar(this);
     }
     
     public Racional dividir(Racional r){
-        return new Racional(den*r.num, num * r.den);
+        Racional rp = new Racional(num*r.den, r.num * den);
+        rp.reducir();
+        return rp;
+    }
+    
+    public Racional dividir(int n){
+        Racional rp =  new Racional(num, den*n);
+        rp.reducir();
+        return rp;
     }
     
     public boolean comparar(Racional r){
         return den*r.num==r.den*num;
     }
     
-   
+    public Racional potencia(){
+        return new Racional(this.den,this.num);
+    }
     
     
     private int gcd(int a, int b){
@@ -75,8 +88,13 @@ public class Racional {
     }
     
     double aDecimales(){
-        return new Double(den/num);
+        return Double.parseDouble(num+"")/Double.parseDouble(den+"");
     }
     
-    
+    void reducir(){
+        int gc = gcd(num, den);
+        num/=gc;
+        den/=gc;
+    }
+        
 }
